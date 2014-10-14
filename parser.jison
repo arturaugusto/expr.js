@@ -5,6 +5,8 @@
 %%
 
 (\s)*(["'])(?:\\\1|.)*?\2(\s)* return 'STRING'
+"and"                 return 'and'
+"or"                  return 'or'
 (\s)*([a-zA-Z])([a-zA-Z.0-9]*)(\s)*  return 'VARIABLE'
 ([ ]*[(])             return '('
 ([)][ ]*)             return ')'
@@ -14,8 +16,6 @@
 "-"                   return '-'
 "+"                   return '+'
 "^"                   return '^'
-"and"                 return 'and'
-"or"                  return 'or'
 "="                   return '='
 "<="                  return '<='
 ">="                  return '>='
