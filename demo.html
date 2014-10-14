@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+	<title>expr.js test page</title>
+	<style>
+	table, th, td {
+		border: 1px solid black;
+		border-spacing: 2px;
+	}
+	</style>
+
+	<script src="./expr.js"></script>
+	<script type='text/javascript'>
+		function evaluateExpr(e) {
+			if(e.keyCode == 13)
+			{
+				user_expr = document.getElementById("user_input").value;
+				user_data = document.getElementById("user_data").value;
+				json = JSON.parse(user_data);
+				try {
+					result = expr.parse(user_expr, json);
+				}
+				catch(err) {
+					result = err.message;
+				}
+				result_textarea = document.getElementById("result");
+				result_textarea.value += result+"\n";
+				result_textarea.scrollTop = result_textarea.scrollHeight;
+				return false; // returning false will prevent the event from bubbling up.
+			}
+			else
+			{
+				return true;
+			}	
+		}
+	</script>
+</head>
+<body>
+	<h3>expr.js Test page</h3>
+	<span>Data:</span>
+	<br>
+	<textarea rows="4" cols="50" id="user_data">{"a":1,"b":{"c":2,"d":"test"}}</textarea>
+	<br>
+	<span>Output:</span>
+	<br>
+	<textarea rows="10" cols="100" id="result"></textarea>
+	<br>
+	<input id="user_input" type="text" value="2*(2+ 5)/2 + (a /2) + b.c + ' str ' + b.d + ' ' + 'str' = 'str'" onkeypress="return evaluateExpr(event);" size="50"> <span>press enter to evaluate</span>
+	<br><br>
+	<span>
+		You can use: <b>+, -, *, /, and, or, =, >, <, >=, <=</b>
+	</span>
+</body>
+</html>
