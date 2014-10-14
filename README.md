@@ -18,7 +18,7 @@ Than you can analyze expressions like this:
 
 >expr.parse('(x and (y or 0)) = 1', {"x": 0, "y": 1});// false
 
-*Note that the = is and comparative operator
+Note that the "=" is and comparative operator
 
 License
 =======
