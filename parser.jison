@@ -7,7 +7,7 @@
 (\s)*(["'])(?:\\\1|.)*?\2(\s)* return 'STRING'
 "and"                 return 'and'
 "or"                  return 'or'
-(\s)*([a-zA-Z])([a-zA-Z.0-9]*)(\s)*  return 'VARIABLE'
+(\s)*([a-zA-Z])([_a-zA-Z.0-9]*)(\s)*  return 'VARIABLE'
 ([ ]*[(])             return '('
 ([)][ ]*)             return ')'
 [0-9 ]+("."[0-9]+)?   return 'NUMBER'
