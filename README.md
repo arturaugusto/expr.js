@@ -8,7 +8,7 @@ How to use
 
 Inlcude expr.js on your page
 ```javascript
-\<script src="expr.js"\>\</script\>
+<script src="expr.js"></script>
 ```
 Than you can analyze expressions like this:
 ```javascript
