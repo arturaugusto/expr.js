@@ -7,10 +7,12 @@ How to use
 =======
 
 Inlcude expr.js on your page
-```javascript
+```html
 <script src="expr.js"></script>
 ```
-Than you can analyze expressions like this:
+
+Then you can evaluate expressions like this:
+
 ```javascript
 expr.parse('2*2 + bar.foo', {"bar":{"foo":38}}); // 42
 expr.parse('x = y + " " + x = z', {"x": "abc", "y": "123", "z": "abc"}); // false true
